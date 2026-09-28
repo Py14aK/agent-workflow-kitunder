@@ -17,6 +17,8 @@ Use these instructions for a project that spans multiple chats or Work runs.
 - Quant/portfolio/time-series analysis → `quant-research-lab`
 - Banking/FSD/requirements work → `fa-requirement-verifier`
 - Morning Jira snapshot / daily board → `snapshot-orchestrator`
+- Multi-agent desk / one ticket one lane → `desk-lanes`
 - Publication/brief/HTML after verification → `research-publisher`
 
 Do not automatically combine domains unless the user explicitly asks.
+Do not skip desk lanes. L0 → L1 → L2 ↓ L3 → STOP.

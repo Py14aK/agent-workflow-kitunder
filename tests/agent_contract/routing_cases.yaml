@@ -13,6 +13,9 @@
 - prompt: "Orchestrate a workflow from this morning daily snapshot."
   expected: snapshot-orchestrator
 
+- prompt: "Create a cool workflow for agents."
+  expected: desk-lanes
+
 - prompt: "Fix one typo in README."
   expected: null
 

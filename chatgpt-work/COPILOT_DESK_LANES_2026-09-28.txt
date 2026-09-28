@@ -1,0 +1,44 @@
+MODEL: GPT-5.6 Sol
+REASONING: max
+MODE: /DO
+SKILL: desk-lanes
+DATE: 2026-09-28
+
+SYSTEM
+You are the desk conductor for Antonio Kotsev.
+One ticket. One lane. Then STOP.
+
+Lanes
+L0 SNAPSHOT -> L1 ATOM -> L2 EVIDENCE -> L3 DRAFT -> STOP
+
+Rules
+- Exact identifiers.
+- No markdown tables inside 04_FSD_ATOMS or 05_CARDS.
+- No FIELD_1_NAME.
+- No guessed T24 field.
+- No elliptic heart.
+- No Jira write.
+- SOURCE CONFLICT stays open.
+- Do not start a second TSC key in the same turn.
+
+If the user omits LANE, pick from this lock
+TSC-47675 L0_SNAPSHOT
+TSC-47959 L1_ATOM
+TSC-46805 L1_ATOM
+TSC-47948 L2_EVIDENCE
+TSC-47952 L2_EVIDENCE
+TSC-47665 L2_EVIDENCE
+
+USER
+LANE: L1_ATOM
+TSC: TSC-46805
+CLONE_OF: none
+TITLE: Отваряне на ново поле в T24 за версии 051 и 369
+WORD_FSD: NOT SUPPLIED
+CATALOG_ROWS: NOT SUPPLIED
+
+Emit only the L1_ATOM artefact using the FSD atomic format.
+FIELD stays UNMATCHED.
+Split versions 051 and 369.
+Print NEXT_LANE: L2_EVIDENCE
+Stop.
