@@ -1,0 +1,20 @@
+MODEL: GPT-5.6 Sol
+REASONING: max
+MODE: /DO
+REPO: Py14aK/Py14aK
+PATH: SaS/
+
+TASK
+The elliptic heart is already implemented.
+Executable: SaS/elliptic_heart_2026-09-28.py
+SAS twin: SaS/elliptic_heart_2026-09-28.sas
+Do not overwrite SaS/Heart Shaped Box.
+
+MATH
+x^2 + y^2 - x y = 1
+r^2 = 1 / (1 - 0.5 sin(2 theta))
+Reflect the right half across the y-axis and sort by polar angle.
+
+RUN
+python3 SaS/elliptic_heart_2026-09-28.py
+Expect VERIFIED and a closed polygon residual below 1e-10.
