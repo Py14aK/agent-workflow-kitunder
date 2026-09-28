@@ -1,0 +1,100 @@
+=== FILE: 00_INDEX.txt ===
+FSD: UNKNOWN
+SLUG: t24-new-field-051-369
+EPIC: TSC-46805
+OWNER: Antonio Kotsev
+STATUS: snapshot-only
+PACKS: FSD_REWRITE
+INGEST_DATE: 2026-09-28
+
+=== FILE: 01_SOURCE.txt ===
+WORD_FSD: NOT SUPPLIED
+EXCEL_BRD: NOT SUPPLIED
+CATALOG_SLICE: NOT SUPPLIED
+SNAPSHOT: morning_daily photo + Copilot list 2026-09-28
+TITLE_SOURCE: Отваряне на ново поле в T24 за версии 051 и 369
+
+=== FILE: 02_EPIC.txt ===
+FSD_ID: UNKNOWN
+DESCRIPTION: Open a new field in T24 for versions 051 and 369
+EPIC: TSC-46805
+OWNER: Antonio Kotsev
+RELATED_TICKETS_NOT_THIS_FOLDER: TSC-47948 TSC-47952 TSC-47665 TSC-47675 TSC-47959
+
+=== FILE: 03_BRD_ATOMS.txt ===
+ATOM_ID: BRD-46805-001
+KIND: BRD
+STATUS: MISSING
+FSD_ID: UNKNOWN
+TSC: TSC-46805
+CLAUSE: NOT INGESTED
+VERSION: UNKNOWN
+FIELD: UNMATCHED
+APP: UNKNOWN
+SOURCE: EXCEL_BRD NOT SUPPLIED
+---
+
+=== FILE: 04_FSD_ATOMS.txt ===
+ATOM_ID: FSD-46805-001
+KIND: FSD
+STATUS: CONFIRMED
+TSC: TSC-46805
+SHALL: Open one new field in T24 on version 051.
+VERSION: 051
+FIELD: UNMATCHED
+APP: UNKNOWN
+SOURCE: SNAPSHOT title
+---
+ATOM_ID: FSD-46805-002
+KIND: FSD
+STATUS: CONFIRMED
+TSC: TSC-46805
+SHALL: Open the same new field in T24 on version 369.
+VERSION: 369
+FIELD: UNMATCHED
+APP: UNKNOWN
+SOURCE: SNAPSHOT title
+---
+ATOM_ID: FSD-46805-003
+KIND: FSD
+STATUS: INFERRED
+TSC: TSC-46805
+SHALL: Bank FSD package target 29.09.2026.
+ACTOR: Antonio Kotsev
+VERSION: 051 ; 369
+FIELD: UNMATCHED
+SOURCE: Copilot morning list 2026-09-28
+---
+
+=== FILE: 05_CARDS.txt ===
+WORKFLOW: UNKNOWN
+TASK_ID: TSC-46805
+PHASE: Approved
+OBJECTIVE: Open a new T24 field on versions 051 and 369. Field token not in snapshot.
+---FIELDS---
+FIELD: UNMATCHED
+APP: UNKNOWN
+PURPOSE: new field on version 051
+NOTES: NEED FROM CATALOG keyword=051 T24 field TSC-46805
+---
+FIELD: UNMATCHED
+APP: UNKNOWN
+PURPOSE: new field on version 369
+NOTES: NEED FROM CATALOG keyword=369 T24 field TSC-46805
+---END CARD---
+
+=== FILE: 06_GAPS.txt ===
+UNMATCHED: field name ; application name ; FSD_ID
+MISSING_SLICE: T24 field catalog for versions 051 and 369
+MISSING_SOURCE: Word FSD ; Excel BRD
+DEPENDENCY: do not bind this field to BENEF.ID or CDTR.AGT.NM.1
+
+=== FILE: 07_SPRINT.txt ===
+IN
+- TSC-46805 owner Antonio Kotsev
+- versions 051 and 369 captured as separate atoms
+NEXT
+- attach Word FSD
+- attach catalog slice before naming the field
+BLOCKED
+- no field token

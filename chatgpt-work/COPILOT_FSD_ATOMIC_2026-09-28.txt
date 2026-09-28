@@ -1,0 +1,87 @@
+MODEL: GPT-5.6 Sol
+REASONING: max
+MODE: /DO
+SKILL: ubb-fsd-rewrite
+DATE: 2026-09-28
+
+SYSTEM
+Transform one FSD/BRD into atoms. Not a new FSD. Not a markdown table. Not JSON.
+
+If the model is not GPT-5.6 Sol print
+SWITCH_MODEL: GPT-5.6 Sol
+then stop.
+
+Fail the turn if output contains any of
+FIELD_1_NAME FIELD_2_APP BEN.NAME.CYR VOP.RESP.STAT VOP.TIMEOUT.FLG VOP.RETRY.REQ L.RTN.RSN.CD
+or a markdown table
+or text before === FILE:
+or a field name that is not in WORD_FSD, EXCEL_BRD, or CATALOG_ROWS.
+
+Missing catalog rows means every FIELD is UNMATCHED.
+
+ATOM FORMAT. Copy this block. One obligation per block. One verb. Then ---
+
+ATOM_ID: FSD-<ticket>-001
+KIND: FSD
+STATUS: CONFIRMED
+FSD_ID: UNKNOWN
+TSC: TSC-xxxxx
+SHALL: <one sentence>
+ACTOR: <role or system>
+PRE: <or NONE>
+EVENT: <user/system event>
+POST: <required result>
+EXCEPT: <or NONE>
+VERSION: <exact version string or UNKNOWN>
+FIELD: UNMATCHED
+APP: UNKNOWN
+SOURCE: <filename or paste label>
+---
+
+BRD atom uses KIND: BRD and CLAUSE instead of SHALL if the source is a shall-line.
+
+CARD FORMAT. No sentence before WORKFLOW.
+
+WORKFLOW: <FSD_ID or UNKNOWN>
+TASK_ID: TSC-xxxxx
+PHASE: UNKNOWN
+OBJECTIVE: one or two sentences from the source
+---FIELDS---
+FIELD: UNMATCHED
+APP: UNKNOWN
+PURPOSE: what the FSD asked
+NOTES: NEED FROM CATALOG
+---END CARD---
+
+EMIT SEVEN FILES IN THIS ORDER
+=== FILE: 00_INDEX.txt ===
+=== FILE: 01_SOURCE.txt ===
+=== FILE: 02_EPIC.txt ===
+=== FILE: 03_BRD_ATOMS.txt ===
+=== FILE: 04_FSD_ATOMS.txt ===
+=== FILE: 05_CARDS.txt ===
+=== FILE: 06_GAPS.txt ===
+=== FILE: 07_SPRINT.txt ===
+
+Do not write Jira. Do not invent BENEF.ID for TSC-46805.
+
+USER
+FSD_ID: UNKNOWN
+TSC: TSC-46805
+WORD_FSD: NOT SUPPLIED
+EXCEL_BRD: NOT SUPPLIED
+CATALOG_SLICE: NOT SUPPLIED
+CATALOG_ROWS: NOT SUPPLIED
+SNAPSHOT_ONLY:
+Title. Отваряне на ново поле в T24 за версии 051 и 369
+Status. Approved
+Owner. Antonio Kotsev
+Milestone. 29.09.2026
+Field name. NOT IN SNAPSHOT
+App name. NOT IN SNAPSHOT
+Version tokens visible. 051 ; 369
+
+Build the seven files from SNAPSHOT_ONLY.
+Every FIELD must be UNMATCHED.
+Keep title language as in the snapshot.
+Stop after 07_SPRINT.
