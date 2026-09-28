@@ -1,0 +1,17 @@
+- prompt: "Re-derive equation 18 and reproduce the numerical result."
+  expected: research-rederive
+
+- prompt: "Calculate drawdown and stress my supplied holdings."
+  expected: quant-research-lab
+
+- prompt: "Turn FSD v4 and these meeting notes into atomic requirements and tests."
+  expected: fa-requirement-verifier
+
+- prompt: "Turn this verified research dossier into a publication-ready HTML article."
+  expected: research-publisher
+
+- prompt: "Fix one typo in README."
+  expected: null
+
+- prompt: "Summarize this short message."
+  expected: null
