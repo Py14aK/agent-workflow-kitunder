@@ -1,0 +1,118 @@
+date: "2026-09-28"
+operator: Antonio Kotsev
+sources:
+  - id: SRC-KIT
+    medium: github
+    path: Py14aK/agent-workflow-kitunder
+    commit: e8b1c39
+  - id: SRC-XLSX-LAST
+    medium: workbook-photo
+    path: morning_daily_LAST_MINUTE_2026-09-28.xlsx
+    inspected: photo
+  - id: SRC-XLSX-VIEW
+    medium: workbook-photo
+    path: morning_daily_2026-09-28_WITH_MORNING_VIEW
+    inspected: photo
+  - id: SRC-COPILOT
+    medium: copilot-video
+    inspected: video
+    note: Draft Jira updates. Not posted.
+  - id: SRC-PROMPTS
+    medium: local-file-list-photo
+    files:
+      - 12_JIRA_DAILY_ROUTING.md
+      - 09_AUTONOMOUS_EXECUTION_CONTRACT.md
+      - 01_THREE_PHASE_WORKFLOW.md
+      - MASTER_PROMPT_VOP_FA_FINAL.txt
+tickets:
+  - key: TSC-47959
+    title: R26_INC19789557_2
+    status: Under Development
+    owner: Antonio Kotsev
+    phase: NEW
+    clone_of: TSC-47675
+    required_actions:
+      - Clarify whether this clone is the corrective DEV path for the FT failure.
+      - Confirm package scope.
+      - Prevent duplicate testing against TSC-47675.
+    sources: [SRC-COPILOT, SRC-XLSX-VIEW]
+    route: fa-requirement-verifier
+    risk: A
+  - key: TSC-47948
+    title: "Проверка на получателя - Verification of payee, SEPA credit and instant payments-Phase 1"
+    status: Under Development
+    owner: Antonio Kotsev
+    phase: NEW
+    clone_of: TSC-46436
+    required_actions:
+      - Attach CDTR.AGT.NM.1 minimal reproducible case.
+      - Provide before/after payload evidence.
+    sources: [SRC-COPILOT, SRC-XLSX-VIEW]
+    route: fa-requirement-verifier
+    risk: A
+  - key: TSC-47952
+    title: "Проверка на получателя - Verification of payee, SEPA credit and instant payments-Phase 3"
+    status: Under Development
+    owner: Antonio Kotsev
+    phase: NEW
+    clone_of: TSC-46574
+    required_actions:
+      - Attach CDTR.AGT.NM.1 field-presence matrix.
+      - Provide mapping trace.
+    sources: [SRC-COPILOT, SRC-XLSX-VIEW]
+    route: fa-requirement-verifier
+    risk: A
+  - key: TSC-47665
+    title: "R26_Парламент 2023/1113 на Европейския парламент и Съвета"
+    status: Under Development
+    owner: Antonio Kotsev
+    phase: ACTIVE
+    clone_of: null
+    blockers:
+      - Missing outgoing XMLs in the environment.
+      - One missing record already identified during testing.
+    required_actions:
+      - Verify all newly introduced local fields.
+      - Investigate missing record.
+      - Obtain outgoing XML evidence.
+    sources: [SRC-COPILOT, SRC-XLSX-VIEW]
+    route: fa-requirement-verifier
+    risk: A
+  - key: TSC-47675
+    title: R26_INC19789557
+    status: Bank Test
+    owner_copilot: Antonio Kotsev
+    owner_workbook: Reni Nikolova
+    owner_conflict: true
+    phase: CRITICAL
+    clone_of: null
+    required_actions:
+      - Preserve screenshots and log evidence.
+      - Avoid duplicate corrective work because of newly created TSC-47959 clone.
+    sources: [SRC-COPILOT, SRC-XLSX-VIEW]
+    route: fa-requirement-verifier
+    risk: A
+  - key: TSC-46805
+    title: "Отваряне на ново поле в T24 за версии 051 и 369"
+    status: Approved
+    owner: Antonio Kotsev
+    phase: FSD
+    clone_of: null
+    required_actions:
+      - FSD package planned for bank delivery.
+      - Documentation reported as ready.
+      - Target FSD milestone 29.09.2026.
+    sources: [SRC-COPILOT, SRC-XLSX-VIEW]
+    route: fa-requirement-verifier
+    risk: B
+conflicts:
+  - id: C-47675-OWNER
+    keys: [TSC-47675]
+    source_a: SRC-COPILOT
+    source_b: SRC-XLSX-VIEW
+    statement: Workbook row shows Reni Nikolova under Bank Test. Copilot morning list treats Antonio Kotsev as owner of the critical parent.
+    decision_required: Confirm owner before posting any TSC-47675 comment.
+unverified:
+  - Live Jira was not queried.
+  - Workbook cells not under Antonio were only partially readable from photos.
+  - Copilot drafts were not posted.
