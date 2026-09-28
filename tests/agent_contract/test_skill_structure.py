@@ -8,6 +8,7 @@ EXPECTED = {
     "quant-research-lab",
     "fa-requirement-verifier",
     "research-publisher",
+    "snapshot-orchestrator",
 }
 
 def test_expected_skills_exist():

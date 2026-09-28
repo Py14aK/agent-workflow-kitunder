@@ -10,6 +10,9 @@
 - prompt: "Turn this verified research dossier into a publication-ready HTML article."
   expected: research-publisher
 
+- prompt: "Orchestrate a workflow from this morning daily snapshot."
+  expected: snapshot-orchestrator
+
 - prompt: "Fix one typo in README."
   expected: null
 
