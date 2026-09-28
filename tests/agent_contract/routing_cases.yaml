@@ -16,6 +16,9 @@
 - prompt: "Create a cool workflow for agents."
   expected: desk-lanes
 
+- prompt: "Run the Gearheart End-to-End Data Science with SAS spine."
+  expected: end-to-end-sas-ds
+
 - prompt: "Fix one typo in README."
   expected: null
 

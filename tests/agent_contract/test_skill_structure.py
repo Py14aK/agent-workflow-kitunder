@@ -10,6 +10,7 @@ EXPECTED = {
     "research-publisher",
     "snapshot-orchestrator",
     "desk-lanes",
+    "end-to-end-sas-ds",
 }
 
 def test_expected_skills_exist():
