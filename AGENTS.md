@@ -26,6 +26,7 @@ Do not pre-read every skill. Load only the matched `SKILL.md` and the file named
 | re-derive, reproduce a paper number | research-rederive |
 | portfolio, drawdown, holdings | quant-research-lab |
 | publish after verification | research-publisher |
+| classify session, research intent, AI R&D taxonomy | research-classifier |
 
 If two skills match, take the more specific one. Never mix FSD/VoP with Gearheart in one turn.
 
