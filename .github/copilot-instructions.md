@@ -9,6 +9,7 @@ Flow. Read the task. Route to one prebuilt skill. Load only that `SKILL.md`. Emi
 | morning snapshot, TSC board, Teams photo | snapshot-orchestrator | `.agents/skills/snapshot-orchestrator/SKILL.md` |
 | one ticket, one lane, desk | desk-lanes | `.agents/skills/desk-lanes/SKILL.md` |
 | FSD, BRD, atoms, vertical card | fa-requirement-verifier | `.agents/skills/fa-requirement-verifier/SKILL.md` |
+| Morning View, ticket delta, evidenced Jira draft | fa-daily-control-tower | `.agents/skills/fa-daily-control-tower/SKILL.md` |
 | Gearheart, listings_clean, PSI, GainLift | end-to-end-sas-ds | `.agents/skills/end-to-end-sas-ds/SKILL.md` |
 | re-derive, reproduce a paper number | research-rederive | `.agents/skills/research-rederive/SKILL.md` |
 | portfolio, drawdown, holdings | quant-research-lab | `.agents/skills/quant-research-lab/SKILL.md` |
