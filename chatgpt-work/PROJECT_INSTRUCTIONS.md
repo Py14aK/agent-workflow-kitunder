@@ -15,8 +15,9 @@ Use these instructions for a project that spans multiple chats or Work runs.
 
 - Mathematical/scientific verification → `research-rederive`
 - Quant/portfolio/time-series analysis → `quant-research-lab`
-- Banking/FSD/requirements work → `fa-requirement-verifier`
-- Morning Jira snapshot / daily board → `snapshot-orchestrator`
+- FSD/BRD/requirements and acceptance-test derivation → `fa-requirement-verifier`
+- Daily Jira snapshot, Morning View, ticket deltas, and evidence-bound status drafts → `fa-daily-control-tower`
+- Morning photo or workbook board when Jira was not read → `snapshot-orchestrator`
 - Multi-agent desk / one ticket one lane → `desk-lanes`
 - Publication/brief/HTML after verification → `research-publisher`
 
