@@ -7,6 +7,12 @@
 - prompt: "Turn FSD v4 and these meeting notes into atomic requirements and tests."
   expected: fa-requirement-verifier
 
+- prompt: "Build today's Morning View from the Jira export, compare yesterday, and draft evidenced ticket updates."
+  expected: fa-daily-control-tower
+
+- prompt: "Check TSC-47959 against yesterday's snapshot and tell me exactly what changed."
+  expected: fa-daily-control-tower
+
 - prompt: "Turn this verified research dossier into a publication-ready HTML article."
   expected: research-publisher
 
@@ -18,6 +24,9 @@
 
 - prompt: "Run the Gearheart End-to-End Data Science with SAS spine."
   expected: end-to-end-sas-ds
+
+- prompt: "Reformat this spreadsheet's print area only."
+  expected: null
 
 - prompt: "Fix one typo in README."
   expected: null
