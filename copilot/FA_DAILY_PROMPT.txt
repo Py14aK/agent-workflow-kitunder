@@ -1,0 +1,14 @@
+Run the FA daily control tower.
+
+Use the current Jira/Excel export as source of truth and the immediately previous snapshot only to compute deltas. Preserve ticket IDs and raw statuses exactly. Detect duplicates, stale rows, changed status/owner/due-date/fix-version/link/comment evidence, and unresolved conflicts.
+
+Draft Jira updates only from explicit evidence. Do not invent progress, scope, test ownership, package boundaries, causes, or next steps. If a requested statement is unsupported, mark NEEDS_INPUT.
+
+Return:
+1) changed tickets,
+2) conflicts/needs input,
+3) concise Jira-ready drafts,
+4) Morning View table/artifact,
+5) validation summary.
+
+If editing the workbook is available, preserve raw sheets, create/refresh one Morning View, freeze/filter the header, and set printing to landscape + fit 1 page wide.
