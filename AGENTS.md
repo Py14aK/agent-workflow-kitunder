@@ -22,6 +22,7 @@ Do not pre-read every skill. Load only the matched `SKILL.md` and the file named
 | morning snapshot, TSC board, Teams photo | snapshot-orchestrator |
 | one ticket one lane, agent desk | desk-lanes |
 | FSD, BRD, atoms, vertical card | fa-requirement-verifier |
+| Morning View, ticket delta, evidenced Jira draft | fa-daily-control-tower |
 | Gearheart, listings_clean, PSI, GainLift | end-to-end-sas-ds |
 | re-derive, reproduce a paper number | research-rederive |
 | portfolio, drawdown, holdings | quant-research-lab |
@@ -29,6 +30,7 @@ Do not pre-read every skill. Load only the matched `SKILL.md` and the file named
 | classify session, research intent, AI R&D taxonomy | research-classifier |
 
 If two skills match, take the more specific one. Never mix FSD/VoP with Gearheart in one turn.
+Do not use fa-daily-control-tower to derive BRD or FSD requirements.
 
 ## Quick exec
 
