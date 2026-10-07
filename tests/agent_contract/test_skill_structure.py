@@ -7,6 +7,7 @@ EXPECTED = {
     "research-rederive",
     "quant-research-lab",
     "fa-requirement-verifier",
+    "fa-daily-control-tower",
     "research-publisher",
     "snapshot-orchestrator",
     "desk-lanes",
