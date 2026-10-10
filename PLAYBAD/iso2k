@@ -1,0 +1,62 @@
+Where the three rails differ
+
+┌───────────────┬─────────────────────────────────────────────────────────────┬────────────────────────────────────────┬──────────────────────────────────────────────────┐
+│ Element       │ SEPA SCT                                                    │ SWIFT CBPR+                            │ T2                                               │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ How many      │ Bulk or single, via the CSM                                 │ Exactly one                            │ Single high-value payment                        │
+│ transactions  │                                                             │                                        │                                                  │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ Currency      │ EUR                                                         │ Any                                    │ EUR                                              │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ SttlmMtd      │ CLRG                                                        │ INDA, INGA, or COVE. CLRG when a       │ CLRG                                             │
+│               │                                                             │ market infrastructure settles it       │                                                  │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ ChrgBr        │ SLEV only                                                   │ DEBT, CRED, or SHAR. SLEV is rejected  │ Scheme rule of the T2 guideline, not SEPA SLEV   │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ UETR          │ Optional                                                    │ Mandatory, UUID version 4              │ Used. Duplicate control includes sender, message │
+│               │                                                             │                                        │ type, receiver, message reference / UETR,        │
+│               │                                                             │                                        │ related reference, value date, amount            │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ EndToEndId    │ 1–35. Must not start or end with /, and must not contain // │ 1–35. NOTPROVIDED if the originator    │ 1–35                                             │
+│               │                                                             │ gave none                              │                                                  │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ Remittance    │ 140 characters                                              │ One occurrence, 140 characters         │ Guideline on MyStandards                         │
+│ Ustrd         │                                                             │                                        │                                                  │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ Agent         │ BIC                                                         │ If BICFI is present, name and postal   │ BIC of the RTGS participant                      │
+│               │                                                             │ address are not allowed. BICFI wins if │                                                  │
+│               │                                                             │ they conflict. If the agents are on    │                                                  │
+│               │                                                             │ SWIFT, BICFI is mandatory              │                                                  │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ Address       │ Structured, unstructured, or hybrid. Hybrid needs TwnNm and │ Hybrid: TwnNm and Ctry mandatory, at   │ R2026.NOV puts TwnNm and Ctry back to guidance   │
+│               │ Ctry, and at most two AdrLine. The EPC has postponed the    │ most two AdrLine. Unstructured: at     │ rather than a hard reject, and allows up to      │
+│               │ ban on unstructured addresses. The old 15 November 2026 and │ most three lines of 70, or 35 if the   │ three AdrLine during that grace period. A hybrid │
+│               │ 22 November 2026 dates are not the end date. A new date is  │ address is unstructured only           │ address still needs TwnNm, Ctry, and at most two │
+│               │ not set                                                     │                                        │ AdrLine                                          │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ Status        │ pacs.002 when rejected                                      │ Negative RJCT is required. Positive    │ pacs.002 on the payment order                    │
+│               │                                                             │ status is bilateral                    │                                                  │
+├───────────────┼─────────────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ Return /      │ camt.056, answered by pacs.004 or camt.029                  │ Same pair                              │ camt.056                                         │
+│ recall        │                                                             │                                        │                                                  │
+└───────────────┴─────────────────────────────────────────────────────────────┴────────────────────────────────────────┴──────────────────────────────────────────────────┘
+
+e
+
+These are the tags from the tool log, placed on CdtTrfTxInf. {??} means the rail or the party role is no
+t fixed by the tag alone.
+
+┌─────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Tag                             │ pacs.008 path                                                                                                                        │
+├─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CREDIT.CURRENCY + CREDIT.AMOUNT │ IntrBkSttlmAmt with the currency attribute. If the debtor currency differs, the original amount is InstdAmt and the rate is XchgRate │
+├─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ BEN.ACCT.NO                     │ CdtrAcct/Id/IBAN, or CdtrAcct/Id/Othr/Id when it is not an IBAN                                                                      │
+├─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ACCT.WITH.BANK occurrence 1     │ CdtrAgt/FinInstnId/BICFI                                                                                                             │
+├─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ACCT.WITH.BANK occurrence 2     │ {??} IntrmyAgt1/FinInstnId/BICFI. Which occurrence is the creditor agent and which is the intermediary depends on the chain          │
+├─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ PAYMENT.DETAILS                 │ RmtInf/Ustrd                                                                  
+
+SEPA character set fo
