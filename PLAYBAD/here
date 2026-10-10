@@ -1,1 +1,72 @@
 here asshike
+│ Rail               │ Specification                                                                                                    │ Message                         │
+├────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────┤
+│ Base ISO 20022     │ ISO 20022 catalogue, message archive                                                                             │ pacs.008.001.08                 │
+├────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────┤
+│ SEPA SCT,          │ EPC115-06, 2025 SCT Inter-PSP Implementation Guidelines, in force with the 2025 SCT rulebook                     │ pacs.008.001.08 for dataset DS- │
+│ interbank          │                                                                                                                  │ 02                              │
+├────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────┤
+│ SWIFT CBPR+        │ MyStandards usage guideline CBPRPlus-pacs.008.001.08                                                             │ one customer credit transfer    │
+├────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────┤
+│ T2 RTGS            │ Eurosystem T2 usage guideline on MyStandards, plus the T2 RTGS user requirements (R2026.NOV is dated 10          │ pacs.008.001.08                 │
+│                    │ September 2026)                                                                                                  │                                 │
+└────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────┘
+
+Namespace: urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08. Root: Document/FIToFICstmrCdtTrf.
+
+Base tree
+
+FIToFICstmrCdtTrf
+  GrpHdr                         [1..1]
+    MsgId                        [1..1]  Max35
+    CreDtTm                      [1..1]
+    BtchBookg                    [0..1]
+    NbOfTxs                      [1..1]
+    CtrlSum                      [0..1]
+    TtlIntrBkSttlmAmt            [0..1]
+    IntrBkSttlmDt                [0..1]
+    SttlmInf                     [1..1]
+      SttlmMtd                   [1..1]  INDA | INGA | COVE | CLRG
+      SttlmAcct                  [0..1]
+      ClrSys                     [0..1]
+      InstgRmbrsmntAgt           [0..1]
+      InstdRmbrsmntAgt           [0..1]
+      ThrdRmbrsmntAgt            [0..1]
+    PmtTpInf                     [0..1]
+    InstgAgt                     [0..1]
+    InstdAgt                     [0..1]
+  CdtTrfTxInf                    [1..*]
+    PmtId                        [1..1]
+      InstrId                    [0..1]
+      EndToEndId                 [1..1]
+      TxId                       [0..1]
+      UETR                       [0..1]  UUID
+      ClrSysRef                  [0..1]
+    PmtTpInf                     [0..1]
+      InstrPrty                  [0..1]
+      SvcLvl                     [0..*]
+      LclInstrm                  [0..1]
+      CtgyPurp                   [0..1]
+    IntrBkSttlmAmt               [1..1]  currency attribute
+    IntrBkSttlmDt                [1..1]
+    SttlmPrty                    [0..1]
+    SttlmTmIndctn                [0..1]
+    InstdAmt                     [0..1]
+    XchgRate                     [0..1]
+    ChrgBr                       [1..1]  DEBT | CRED | SHAR | SLEV
+    ChrgsInf                     [0..*]
+    PrvsInstgAgt1, 2, 3          [0..1]
+    InstgAgt / InstdAgt          [0..1]
+    IntrmyAgt1, 2, 3             [0..1]
+    Dbtr                         [1..1]  Nm, PstlAdr, Id
+    DbtrAcct                     [0..1]  IBAN or Othr
+    DbtrAgt                      [1..1]  BICFI, or name and address
+    CdtrAgt                      [0..1]
+    Cdtr                         [1..1]
+    CdtrAcct                     [0..1]
+    InstrForCdtrAgt              [0..*]
+    InstrForNxtAgt               [0..*]
+    Purp                         [0..1]
+    RmtInf                       [0..1]
+      Ustrd                      [0..*]
+      Strd                       [0..*]
