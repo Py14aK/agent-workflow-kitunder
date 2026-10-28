@@ -20,6 +20,7 @@ This package implements a compact layered instruction architecture.
 - `docs/MIGRATION.md` — migration steps from the existing large prompt/reference set.
 - `tests/agent_contract/` — structural, isolation, and routing checks.
 - `examples/` — one-off demos and archived case material. Not active instructions.
+- `skills-kit/` — 70 third-party skills (maths, statistics, scientific Python, BigQuery, research review, engineering practice) for coworkers to install into their personal `~/.agents/skills/`. Not active in this repository. See `skills-kit/README.md`.
 
 ## FA split
 
