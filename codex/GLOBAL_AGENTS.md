@@ -22,6 +22,12 @@ EXECUTION
 - Never claim execution, reproduction, rendering, or inspection succeeded unless it actually occurred.
 - For surprising or decision-relevant results, perform a reasonableness or independent check.
 
+SKILLS
+- Route every non-trivial task through the skill-index skill when it is installed; load the matched skill without being asked and name it in the reply as "(skill: x)".
+- Gates, whenever their moment comes: numbers and formulas → sanity-checks; reports with numbers or paper claims → retestable-analysis; before saying done → verify-before-done; high-stakes decisions → red-team; proofs → proof-workbench; failures → debug-root-cause; commit/push/PR → git-ship.
+- If a named skill is not installed, do the task directly and say which skill would help.
+- Master copy of these preferences is the user's claude.ai memory; this file and ~/.claude/CLAUDE.md are generated from it. Do not let them drift.
+
 CONTEXT HYGIENE
 - Keep Research, Investments, Work/FA, and other projects separate.
 - Do not import project-specific assumptions into unrelated tasks.
