@@ -60,6 +60,7 @@ If no gate fires, do not add a review paragraph.
 ## Repository contract
 
 - Domain workflows live in `.agents/skills/`. Do not copy them into this file.
+- `skills-kit/` is a distribution kit for personal installs. Do not route to it or load its skills here.
 - Preserve provenance. A photo is not live Jira.
 - Do not claim a command succeeded unless its output was observed.
 - One-off requirements stay in the current task prompt.
