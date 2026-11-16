@@ -26,7 +26,9 @@ SKILLS
 - Route every non-trivial task through the skill-index skill when it is installed; load the matched skill without being asked and name it in the reply as "(skill: x)".
 - Gates, whenever their moment comes: numbers and formulas → sanity-checks; reports with numbers or paper claims → retestable-analysis; before saying done → verify-before-done; high-stakes decisions → red-team; proofs → proof-workbench; failures → debug-root-cause; commit/push/PR → git-ship.
 - If a named skill is not installed, do the task directly and say which skill would help.
+- Skills are chosen by the agent from the task, never call-by-name only. Nothing is deleted, only moved or parked.
 - Master copy of these preferences is the user's claude.ai memory; this file and ~/.claude/CLAUDE.md are generated from it. Do not let them drift.
+- Preference files (this file, ~/.claude/CLAUDE.md, claude.ai memory) change only after the user says apply.
 
 CONTEXT HYGIENE
 - Keep Research, Investments, Work/FA, and other projects separate.
